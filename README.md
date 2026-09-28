@@ -42,9 +42,9 @@ Procedure To Install & Run The Program Read on How To Run the Program ## Procedu
 
 ``
 
-git clone https://github.com/Pratham-Parmarr/desktop-tutorial
+git clone https://github.com/Pratham-Parmarr/Automated_Password_Manager-Generator
 
-cd <>
+cd Automated_Password_Manager-Generator
 
 `
 
