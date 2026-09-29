@@ -1,76 +1,64 @@
 # Automated Password Manager & Generator (`Automated_Password_Manager-Generator`)
 
-A modular, CLI-based security application built with Python that enables users to generate highly secure passwords, evaluate password strength against key criteria, and safely store/retrieve encrypted login credentials locally.
+An automated CLI-based security application implemented in Python for generating strong passwords, evaluating their strength against standard criteria, and securing stored login credentials.
+## Introduction
 
+Managing secure, unique passwords is a huge pain for many people. The Automated Password Manager & Generator solves this problem by providing an easy-to-use CLI-based terminal for generating strong random passwords, assessing the strength of existing passwords, and storing secure passwords in an encrypted vault.
 ## Overview
+The app offers users a variety of tools for dealing with the problem of keeping track of distinct and secure passwords for all of their different online accounts.
+Some of the key features offered by the app are: a Master Password to secure the application, password generation, password strength evaluation, and encrypted storage facility.
+To guarantee the security of the application, the user has to enter a Master Password every time they use the application. The generated passwords are also strong enough to withstand brute-force or dictionary attacks.
 
-Managing secure, distinct passwords across multiple online accounts is a significant challenge. The **Automated Password Manager & Generator** solves this issue by offering a lightweight, offline, command-line interface (CLI) terminal. Users can create randomized, complex passwords customized to specific criteria, evaluate existing passwords for security vulnerabilities, and persist credential records in an obfuscated local vault protected by master authentication.
+## Technologies and Tools
 
-## Features
+- Implementation language: Python 3.x
+- Libraries: `random`, `string`
+## How to Use
+### Requirements
 
-- **Master Password Authentication**: Secures application entry to prevent unauthorized local access.
-- **Customizable Password Generation**: Generates strong passwords tailored by length and inclusion of uppercase letters, numbers, and special characters.
-- **Password Strength Evaluator**: Analyzes passwords and categorizes them into **Weak**, **Medium**, or **Strong** tiers based on length and character variance.
-- **Obfuscated Credential Storage**: Masks sensitive passwords using character-shift algorithms before persisting them to disk.
-- **Vault Viewer**: Reads, unmasks, and neatly formats saved website credentials on demand.
-
-## Technologies & Tools Used
-
-- **Programming Language**: Python 3.x
-- **Standard Libraries**:
-  - `random`: Pseudo-random selection for secure key character assembly.
-  - `string`: Character set sets (`ascii_lowercase`, `ascii_uppercase`, `digits`, `punctuation`).
-
-## Steps to Install & Run
-
-### Prerequisites
-- Python 3.x installed on your computer.
+- Python 3+
 
 ### Installation
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Pratham-Parmarr/Automated_Password_Manager-Generator
-   ```
-2. **Navigate to the project directory**:
-   ```bash
-   cd Automated_Password_Manager-Generator
-   ```
+Install the requirements by cloning the repo:
+```bash
+git clone https://github.com/Pratham-Parmarr/Automated_Password_Manager-Generator
+```
+Then navigate to the cloned repo and run:
+```bash
+cd Automated_Password_Manager-Generator
+```
 
-### Execution
-Run the main script to start the interactive security terminal:
+For instructions on running the code, see below.
+
+### Run
+To run the code, simply do:
 ```bash
 python main.py
 ```
-> **Default Master Password**: `boom boom`
 
-## Instructions for Testing
+Default master password: `boom boom`
+### Testing
+#### Testing the Master Password
+- Run `python main.py`.
+- In the terminal that appears, enter any password and ensure that the wrong password message shows.
+- Then try the default master password `boom boom` and ensure that the menu appears.
+#### Testing the Password Generator
 
-1. **Test Master Authentication**:
-   - Run `python main.py`.
-   - Enter an incorrect master password to verify access denial.
-   - Enter `boom boom` to verify access granted.
-
-2. **Test Password Generation (Option 1)**:
-   - Select option `1`.
-   - Set length (e.g., `16`) and toggle options (`y/n`). Verify that the output string matches the requested constraints.
-
-3. **Test Password Strength Evaluator (Option 2)**:
-   - Select option `2`.
-   - Test short passwords (e.g., `pass`) -> Expect `Weak`.
-   - Test medium passwords (e.g., `Pass1234`) -> Expect `Medium`.
-   - Test complex passwords (e.g., `P@ssw0rd_2026!`) -> Expect `Strong`.
-
-4. **Test Vault Management (Options 3 & 4)**:
-   - Select option `3` to save a credential (`site.com`, `user1`, `Secret123`).
-   - Check `vault.txt` directly to confirm the password is saved in a masked state.
-   - Select option `4` in the CLI menu to confirm credentials are properly unmasked when displayed.
-
-### Main Security Terminal Menu
+- From the master password prompt, select the 1 option to generate a password.
+- Set a length (e.g., 16), and set desired options to `y` or `n`. Ensure that the generated password meets the requirements we set.
+#### Testing the Password Strength
+- From the master password prompt, select the 2 option to check the strength of a test password.
+- Try a few passwords with different strengths, for example, 'pass' should return weak, 'Pass1234' medium, and 'P@ssw0rd_2026!' strong.
+#### Testing the Saving and Reading of Vault
+- To test the saving facility: From the master password prompt, select 3 to save a credential. Set a site name, username and password. This should save to the `vault.txt` file.
+- Check the `vault.txt` file to ensure that the password is masked correctly.
+- From the master password prompt, select 4 to view the saved credentials. This will unmask the passwords and display them clearly.
+### The Security Terminal
+The following is the menu that users see when they are prompted to enter the master password.
 ```text
 === SECURITY TERMINAL ===
 Enter Master Password to unlock: boom boom
 Access Granted!
-
 --- MENU ---
 1. Generate Password
 2. Check Password Strength
@@ -78,5 +66,3 @@ Access Granted!
 4. View Saved Credentials
 5. Exit
 ```
-
----
