@@ -2,7 +2,7 @@ import generator
 import vault
 import evaluator
 
-MASTER_PASSWORD = "admin"  
+MASTER_PASSWORD = "boom boom"  
 
 def main():
     print("=== SECURITY TERMINAL ===")
