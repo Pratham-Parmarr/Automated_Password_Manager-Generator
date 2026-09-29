@@ -1,43 +1,41 @@
-# Project Statement: Security Terminal & Credential Vault
+# Project Statement: Automated Password Manager & Generator
 
-## Problem Statement
+## 1. Problem Statement
+In the modern digital environment, users manage numerous accounts across social, academic, and professional platforms. Due to cognitive overload, users frequently fall back on unsafe practices, such as reusing simple passwords across multiple platforms or keeping plain-text logs on their devices. These habits significantly increase susceptibility to cyber threats, credential stuffing, and unauthorized data access. 
 
-With the modern explosion of online services, it is common for a user to have tens of accounts across different platforms. This often leads to bad security practices, including using weak passwords or writing down credentials in plain text. Commercial password managers are often bloated or require a connection to a proprietary server. The end user needs a lightweight, transparent, and modular local CLI utility to assess password safety, generate high-entropy strings, and store secrets offline.
+Furthermore, many commercial password managers require cloud synchronization, paid subscriptions, or complex setup procedures, which can discourage non-technical or privacy-minded users who prefer simple, offline credential management.
 
----
+## 2. Scope of the Project
+The **Automated Password Manager & Generator** provides a lightweight, local, modular Python application focused on baseline credential lifecycle management.
 
-## Scope of the Project
+### **In Scope:**
+- Interactive Command-Line Interface (CLI) navigation.
+- Master key access validation.
+- Dynamic password synthesis based on user-defined constraints (length, upper/lower case, numbers, special characters).
+- Deterministic password strength assessment algorithms.
+- Local text file (`vault.txt`) data persistence using custom character masking logic.
 
-This project's scope is to design a multi-module Python CLI utility capable of handling basic credential-related tasks. Some of the features that should be implemented are:
+### **Out of Scope:**
+- Cloud databases, multi-device sync, and network socket communication.
+- Graphical User Interfaces (GUI) or browser extensions.
+- Advanced industrial encryption standards (e.g., AES-256 or bcrypt) beyond the scope of local demonstration masking.
 
-- Authentication layer: a simple barrier that prevents unathorized users from printing the vault's contents.
 
-- Password utilities: a module that can generate random strings and assess password strength.
 
-- Local storage and obfuscation: a module that uses standard Python libraries to store the sensitive data in files in an obfuscated way.
+## 3. Target Users
+- **Students & Academics**: Seeking a clean, easy-to-use toolkit to organize account credentials locally.
+- **Privacy Enthusiasts**: Users who prefer offline, lightweight software without third-party network connectivity.
+- **Developers & Testers**: Individuals requiring quick generation of random test keys and mock credentials during software development.
 
-The scope of this project does not include advanced data encryption features (AES-256), database layer utilities, or GUI elements.
 
----
 
-## Target Users
+## 4. High-Level Features
 
-- Developers and power-users: people that are comfortable with command line interfaces and want to avoid bloat.
+| Feature Module | Description |
+| :--- | :--- |
+| **Authentication Module** | Enforces master access verification before granting access to vault functions. |
+| **Generator Engine** | Utilizes configurable character pools to generate unpredictable, high-entropy password strings. |
+| **Strength Evaluator** | Grades passwords into discrete risk categories (**Weak**, **Medium**, **Strong**) based on length and character set composition. |
+| **Obfuscation / Masking Engine** | Implements standard cipher masking on strings during write operations and reverses the transform upon read calls. |
+| **Vault File Manager** | Reads and appends formatted record entries (`site,username,masked_password`) directly to local text storage. |
 
-- Students and learners: people that wish to expand their knowledge of Python by learning about string manipulation, file writing/reading, and light data encryption.
-
-- Privacy-focused individuals: people that are concerned about online security and want to avoid potential surveillance from third parties.
-
----
-
-## High-Level Features
-
-1. Master password: a simple authentication mechanism that prevents unauthorized access to the vault.
-
-2. Random password generator: a utility that can create strong, customizable, and random strings.
-
-3. Password assessment: a feature that scores generated or user-submitted passwords.
-
-4. Character masking: a helper utility that replaces characters in a string with user-defined ones.
-
-5. File utilities: functions to append entries to a file and read a file's contents.
